@@ -61,5 +61,34 @@ cd nockchain
 make install-hoonc
 ```
 
+**4) Compilamos** (cada proceso llevará varios minutos, paciencia)
+```
+# Eden ZKVM, Jock language
+make build-hoon-all
+```
+
+```
+# Rust-based node and drivers
+make build
+```
+
+**5) Creamos la Wallet**
+```
+# Instalamos el módulo
+make install-nockchain-wallet
+```
+
+```
+# Generamos wallet
+nockchain-wallet keygen
+```
+* Guardamos el mnemónico, la clave pública y clave privada
+
+**6) Modificamos archivo de configuración**
+```
+nano Makefile
+```
+* En MINING_PUBKEY: Reemplazamos con el valor de nuestra clave pública. Nos aseguramos que nuestra clave no quede dividida por un salto de línea, pues nos daría error después. Guardamos el fichero.
+
 
 
