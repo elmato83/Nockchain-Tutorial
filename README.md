@@ -90,5 +90,56 @@ nano Makefile
 ```
 * En MINING_PUBKEY: Reemplazamos con el valor de nuestra clave pública. Nos aseguramos que nuestra clave no quede dividida por un salto de línea, pues nos daría error después. Guardamos el fichero.
 
+**7) Instalamos Screen si no está instalado**
+```
+sudo apt install screen
+```
+
+**8) Lanzamos el nodo Leader**
+```
+# Abrimos una screen para el leader
+screen -S leader
+```
+
+```
+# Iniciamos el nodo leader y esperamos que instale
+make run-nockchain-leader
+```
+* Para salir de screen pulsamos Ctrl + A + D
+
+**9) Lanzamos el nodo Follower**
+```
+# Abrimos otro terminal y entramos al folder nockchain. Abrimos screen para el leader
+cd nockchain
+screen -S follower
+```
+
+```
+# Iniciamos el nodo follower y esperamos que instale
+make run-nockchain-follower
+```
+* Para salir de screen pulsamos Ctrl + A + D
+
+**10) Comandos Útiles Screen**
+```
+# Obtener logs de la screen leader
+screen -r leader
+
+# Obtener logs de la screen follower
+screen -r follower
+
+# Salir de una screen
+Press: CTRL + A + D
+
+# Listar las screens que hay abiertas
+screen -ls
+
+# Parar el nodo dentro de una screen
+Press: Ctrl + C
+
+# Eliminar screen desde fuera de ella
+screen -XS nombrescreen quit
+```
+
 
 
